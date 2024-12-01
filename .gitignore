@@ -15,3 +15,6 @@ gradle-app.setting
 
 .idea/
 .kotlin/
+
+# AOC rules suggest not uploading inputs
+**/resources/*.txt

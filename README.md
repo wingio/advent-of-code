@@ -1,3 +1,6 @@
-# Advent of Code 2022
+# Advent of Code 2024
 
-Build and run with `./gradlew build && java -jar build/libs/AOC-2022-1.0-SNAPSHOT-standalone.jar [day]`
+All puzzles can be found in the `src/main/kotlin/puzzles` directory.
+
+To run the solution for a given day just click the run button in
+the main function in that puzzles file inside of IntelliJ IDEA or Android Studio.

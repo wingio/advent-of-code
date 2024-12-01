@@ -1,3 +1,3 @@
 
-rootProject.name = "AOC-2022"
+rootProject.name = "Advent Of Code"
 

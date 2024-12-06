@@ -12,6 +12,7 @@ val west = 0 to -1
 val east = 0 to 1
 
 val allDirections = listOf(north, northEast, northWest, south, southEast, southWest, east, west)
+val cardinals = listOf(north, east, south, west)
 
 operator fun Coords.plus(other: Coords) = first + other.first to second + other.second
 operator fun Coords.times(other: Int) = first * other to second * other

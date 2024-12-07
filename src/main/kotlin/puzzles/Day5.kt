@@ -1,13 +1,12 @@
 package puzzles
 
-import print
-import readInput
+import day
 
-private val input = readInput(day = 5)
+// Day 5
 
 typealias Rule = Pair<Int, Int>
 
-fun main() {
+fun main() = day(5) {
     val sections = input.split("\n\n")
     val orderRules = sections[0]
         .lines()
@@ -25,30 +24,30 @@ fun main() {
                 .map { it.toInt() }
         }
 
-    // Part 1
-    updatePages
-        .sumOf { pages ->
-            val rules = pages.getApplicableRules(orderRules) // Get all the rules that pertain to at least two included page #s
-            if (rules.all { pages.satisfies(it) }) // Check if this page # list is sorted according to the rules
-                pages[pages.lastIndex / 2] else 0
-        }
-        .print { "(Part 1) Sum of the middle page #s: $it" }
+    part1 {
+        updatePages
+            .sumOf { pages ->
+                val rules = pages.getApplicableRules(orderRules) // Get all the rules that pertain to at least two included page #s
+                if (rules.all { pages.satisfies(it) }) // Check if this page # list is sorted according to the rules
+                    pages[pages.lastIndex / 2] else 0
+            }
+    }
 
-    // Part 2
-    updatePages
-        .filter { pages -> // Get incorrectly ordered page lists
-            val rules = pages.getApplicableRules(orderRules)
-            rules.any { !pages.satisfies(it) }
-        }
-        .map { pages ->
-            pages
-                .toMutableList() // Lets us sort in place
-                .apply(pages.getApplicableRules(orderRules)) // Apply all the necessary rules
-        }
-        .sumOf { pages ->
-            pages[pages.lastIndex / 2] // Middle page #
-        }
-        .print { "(Part 2) Sum of the fixed middle page #s: $it" }
+    part2 {
+        updatePages
+            .filter { pages -> // Get incorrectly ordered page lists
+                val rules = pages.getApplicableRules(orderRules)
+                rules.any { !pages.satisfies(it) }
+            }
+            .map { pages ->
+                pages
+                    .toMutableList() // Lets us sort in place
+                    .apply(pages.getApplicableRules(orderRules)) // Apply all the necessary rules
+            }
+            .sumOf { pages ->
+                pages[pages.lastIndex / 2] // Middle page #
+            }
+    }
 }
 
 fun List<Int>.getApplicableRules(allRules: List<Rule>): List<Rule> {

@@ -1,29 +1,25 @@
 package puzzles
 
+import day
 import getNumbersFromLine
-import print
-import readInput
-import kotlin.math.abs
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 
 // Day 2
 
-private val input = readInput(day = 2)
-
-fun main() {
+fun main() = day(2) {
     val reports = input.lines().map { getNumbersFromLine(it) }
 
-    reports
-        .count { reportIsSafe(it) }
-        .print { "(Part 1) Safe reports: $it" }
+    part1 {
+        reports.count { reportIsSafe(it) }
+    }
 
-    reports
-        .count { checkWithDampener(it) }
-        .print { "(Part 2) Safe reports with dampener: $it" }
+    part2 {
+        reports.count { checkWithDampener(it) }
+    }
 }
 
-fun reportIsSafe(report: List<Int>, dampen: Boolean = false): Boolean {
+fun reportIsSafe(report: List<Int>): Boolean {
     val deltas = report
         .windowed(2, 1)
         .map { it.first() - it.last() }

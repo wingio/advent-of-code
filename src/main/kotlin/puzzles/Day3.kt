@@ -1,24 +1,21 @@
 package puzzles
 
-import print
-import readInput
+import day
 
 // Day 3
 
-private val input = readInput(day = 3)
-
 val multRx = "mul\\((\\d+),(\\d+)\\)".toRegex()
 
-fun main() {
-    // Part 1
-    multRx.findAll(input)
-        .sumOf { it.groupValues[1].toInt() * it.groupValues[2].toInt() }
-        .print { "(Part 1) Sum: $it" }
+fun main() = day(3) {
+    part1 {
+        multRx.findAll(input)
+            .sumOf { it.groupValues[1].toInt() * it.groupValues[2].toInt() }
+    }
 
-    // Part 2
-    parseInstructions(input)
-        .sumOf { (x, y) -> x * y }
-        .print { "(Part 2) Conditional sum: $it" }
+    part2 {
+        parseInstructions(input)
+            .sumOf { (x, y) -> x * y }
+    }
 }
 
 fun parseInstructions(inp: String): List<Pair<Int, Int>> {

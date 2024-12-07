@@ -1,9 +1,8 @@
 package puzzles
 
-import print
-import readInput
+import day
 
-private val input = readInput(day = 7)
+// Day 7
 
 typealias Equation = Pair<Long, List<Long>>
 val operators = mutableListOf<(Long, Long) -> Long>(
@@ -13,18 +12,19 @@ val operators = mutableListOf<(Long, Long) -> Long>(
 
 val concat: (Long, Long) -> Long = { a, b -> "$a$b".toLong() }
 
-fun main() {
+fun main() = day(7) {
     val equations: List<Equation> = input.lines().map {
         it.split(": ").run { first().toLong() to last().split(" ").map { n -> n.toLong() } }
     }
 
-    // Part 1
-    equations.filter { it.isValid() }.sumOf { it.first }.print { "(Part 1) Total calibration result: $it" }
+    part1 {
+        equations.filter { it.isValid() }.sumOf { it.first }
+    }
 
-
-    // Part 2
-    operators.add(concat)
-    equations.filter { it.isValid() }.sumOf { it.first }.print { "(Part 2) Total calibration result with concat: $it" }
+    part2 {
+        operators.add(concat)
+        equations.filter { it.isValid() }.sumOf { it.first }
+    }
 }
 
 fun Equation.isValid(): Boolean {

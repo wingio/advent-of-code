@@ -2,27 +2,29 @@ package puzzles
 
 import Coords
 import cardinals
+import day
 import north
 import plus
-import readInput
 
-private val input = readInput(day = 6)
+// Day 6
 
 val moves = mutableSetOf<Pair<Coords, Coords>>()
 var obstacles = mutableSetOf<Coords>()
 var turnCount = 0
 
-fun main() {
+fun main() = day(6) {
     val grid = input.lines()
     val startingPos = grid.indexOfFirst { it.contains("^") } to grid.first { it.contains("^") }.indexOf('^')
 
-    // Part 1
-    grid.walkTo(startingPos)
-    println("(Part 1) Unique guard positions: ${moves.map { it.first }.toSet().size + 1}")
+    part1 {
+        grid.walkTo(startingPos)
+        moves.map { it.first }.toSet().size + 1
+    }
 
-    // Part 2
-    moves.map { it.first }.toSet().forEach { grid.checkSpot(it) }
-    println("(Part 2) Number of possible obstructions: ${obstacles.size}")
+    part2 {
+        moves.map { it.first }.toSet().forEach { grid.checkSpot(it) }
+        obstacles.size
+    }
 }
 
 fun List<String>.canMoveToSpot(spot: Coords): Boolean? {

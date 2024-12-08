@@ -1,4 +1,5 @@
 typealias Coords = Pair<Int, Int>
+typealias Matrix<T> = Array<Array<T>>
 
 val north = -1 to 0
 val northWest = -1 to -1
@@ -28,4 +29,24 @@ inline fun List<String>.forEachCoord(block: (Coords) -> Unit) {
             block(y to x)
         }
     }
+}
+
+inline fun <T> Matrix<T>.forEachCoord(block: (Coords) -> Unit) {
+    for (y in indices) {
+        for (x in first().indices) {
+            block(y to x)
+        }
+    }
+}
+
+inline fun <T> Matrix<T>.forEachItem(block: (Coords, T) -> Unit) {
+    forEachIndexed { y, row ->
+        row.forEachIndexed { x, o ->
+            block(y to x, o)
+        }
+    }
+}
+
+operator fun <T> Matrix<T>.contains(coords: Coords): Boolean {
+    return coords.first in indices && coords.second in (firstOrNull()?.indices ?: 0..0)
 }

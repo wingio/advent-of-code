@@ -16,3 +16,14 @@ fun readInput(day: Int, example: Boolean): String {
 fun getNumbersFromLine(line: String): List<Int> {
     return line.split(numberSeparatorRx).map { it.toInt() }
 }
+
+/**
+ * Multiplies all numbers in this sequence
+ */
+fun Collection<Long>.product(): Long {
+    var product = first()
+    for (num in drop(1)) {
+        product *= num
+    }
+    return product
+}

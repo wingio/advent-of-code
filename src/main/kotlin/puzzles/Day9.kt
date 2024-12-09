@@ -7,7 +7,7 @@ import day
 private data class Block(val id: Int, val start: Int, val size: Int)
 private data class Space(val start: Int, val size: Int)
 
-fun main() = day(9, example = false) {
+fun main() = day(9) {
     val map = input.map { it.toString().toInt() }
 
     val spaces = mutableListOf<Space>()

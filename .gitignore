@@ -18,3 +18,4 @@ gradle-app.setting
 
 # AOC rules suggest not uploading inputs
 **/resources/*.txt
+!**/resources/*.example.txt

@@ -1,16 +1,19 @@
 import kotlin.time.measureTimedValue
 
-fun day(day: Int, builder: Day.() -> Unit) {
-    Day(day).apply(builder)
+fun day(day: Int, example: Boolean = true, builder: Day.() -> Unit) {
+    Day(day, example).apply(builder)
 }
 
 class Day(
-    day: Int
+    day: Int,
+    example: Boolean
 ) {
 
-    val input = readInput(day)
+    val input = readInput(day, example)
 
     init {
+        if (example) printWarning("Using example input")
+
         println("""
             -+-=========================+-+{[ * ]}+-+=========================-+-
                                      Advent Of Code 2024
@@ -39,6 +42,14 @@ class Day(
                 Took $time
             """.trimIndent()
         }
+    }
+
+    fun printWarning(warning: String) {
+        val hash = "#".repeat(warning.length + 25)
+        println("\u001b[1;30;43m $hash \u001b[0m")
+        println("\u001b[1;30;43m ##  !!  WARNING: ${warning.uppercase()}  !!  ## \u001b[0m")
+        println("\u001b[1;30;43m $hash \u001b[0m")
+        println()
     }
 
 }

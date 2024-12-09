@@ -1,3 +1,5 @@
+package util
+
 import kotlin.io.path.Path
 import kotlin.io.path.readText
 

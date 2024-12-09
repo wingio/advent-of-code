@@ -1,7 +1,7 @@
 package puzzles
 
 import day
-import getNumbersFromLine
+import util.getNumbersFromLine
 import kotlin.math.absoluteValue
 
 // Day 1

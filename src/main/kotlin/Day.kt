@@ -1,3 +1,5 @@
+import util.print
+import util.readInput
 import kotlin.time.measureTimedValue
 
 fun day(day: Int, example: Boolean = true, builder: Day.() -> Unit) {

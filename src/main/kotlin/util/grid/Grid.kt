@@ -91,6 +91,10 @@ class Grid<T>(
             return Grid(str.lines().map { it.toList().toTypedArray() }.toTypedArray())
         }
 
+        fun intGrid(str: String): Grid<Int> {
+            return Grid(str.lines().map { it.toList().map { c -> c.toString().toInt() }.toTypedArray() }.toTypedArray())
+        }
+
     }
 
 }

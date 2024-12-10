@@ -7,7 +7,7 @@ import util.grid.*
 
 // Day 4
 
-const val wordToFind = "XMAS"
+private const val wordToFind = "XMAS"
 
 fun main() = day(4) {
     val grid = Grid.charGrid(input)

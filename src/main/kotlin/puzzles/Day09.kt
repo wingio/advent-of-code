@@ -63,7 +63,7 @@ fun main() = day(9) {
     }
 }
 
-fun List<String>.hash(): Long {
+private fun List<String>.hash(): Long {
     var hash = 0L
     forEachIndexed { index, id ->
         if (id != ".") hash += index * id.toInt()

@@ -4,7 +4,7 @@ import day
 
 // Day 3
 
-val multRx = "mul\\((\\d+),(\\d+)\\)".toRegex()
+private val multRx = "mul\\((\\d+),(\\d+)\\)".toRegex()
 
 fun main() = day(3) {
     part1 {
@@ -18,7 +18,7 @@ fun main() = day(3) {
     }
 }
 
-fun parseInstructions(inp: String): List<Pair<Int, Int>> {
+private fun parseInstructions(inp: String): List<Pair<Int, Int>> {
     val matches = multRx.findAll(inp)
 
     var cursor = 0

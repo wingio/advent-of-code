@@ -29,7 +29,7 @@ fun main() = day(10) {
     }
 }
 
-fun Grid<Int>.route(start: Point, visited: MutableList<Point>) {
+private fun Grid<Int>.route(start: Point, visited: MutableList<Point>) {
     val surrounding: List<Point> = Directions.CARDINALS.map { start + it }
     visited.add(start)
     if (get(start) == 9) return

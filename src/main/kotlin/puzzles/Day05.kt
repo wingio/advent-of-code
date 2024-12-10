@@ -4,7 +4,7 @@ import day
 
 // Day 5
 
-typealias Rule = Pair<Int, Int>
+private typealias Rule = Pair<Int, Int>
 
 fun main() = day(5) {
     val sections = input.split("\n\n")
@@ -50,21 +50,21 @@ fun main() = day(5) {
     }
 }
 
-fun List<Int>.getApplicableRules(allRules: List<Rule>): List<Rule> {
+private fun List<Int>.getApplicableRules(allRules: List<Rule>): List<Rule> {
     return allRules.filter { contains(it.first) && contains(it.second) }
 }
 
-fun List<Int>.satisfies(rule: Rule): Boolean {
+private fun List<Int>.satisfies(rule: Rule): Boolean {
     val (before, after) = rule
     return indexOf(before) < indexOf(after)
 }
 
-fun Int.checkAgainst(other: Int, rules: List<Rule>): Int {
+private fun Int.checkAgainst(other: Int, rules: List<Rule>): Int {
     val rule = rules.firstOrNull() { this in it.toList() && other in it.toList() } ?: return 0
     return if (listOf(this, other).satisfies(rule)) -1 else 1
 }
 
-fun MutableList<Int>.apply(rules: List<Rule>): List<Int> {
+private fun MutableList<Int>.apply(rules: List<Rule>): List<Int> {
     sortWith { page1, page2 ->
         page1.checkAgainst(page2, rules)
     }

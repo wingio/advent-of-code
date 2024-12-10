@@ -19,7 +19,7 @@ fun main() = day(2) {
     }
 }
 
-fun reportIsSafe(report: List<Int>): Boolean {
+private fun reportIsSafe(report: List<Int>): Boolean {
     val deltas = report
         .windowed(2, 1)
         .map { it.first() - it.last() }
@@ -27,7 +27,7 @@ fun reportIsSafe(report: List<Int>): Boolean {
     return deltas.all { it.absoluteValue in 1..3 } && deltas.map { it.sign }.toSet().size == 1
 }
 
-fun checkWithDampener(report: List<Int>): Boolean {
+private fun checkWithDampener(report: List<Int>): Boolean {
     if (reportIsSafe(report)) return true
 
     return report.indices.any {

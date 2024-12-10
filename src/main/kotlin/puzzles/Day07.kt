@@ -4,13 +4,13 @@ import day
 
 // Day 7
 
-typealias Equation = Pair<Long, List<Long>>
-val operators = mutableListOf<(Long, Long) -> Long>(
+private typealias Equation = Pair<Long, List<Long>>
+private val operators = mutableListOf<(Long, Long) -> Long>(
     { a, b -> a + b },
     { a, b -> a * b }
 )
 
-val concat: (Long, Long) -> Long = { a, b -> "$a$b".toLong() }
+private val concat: (Long, Long) -> Long = { a, b -> "$a$b".toLong() }
 
 fun main() = day(7) {
     val equations: List<Equation> = input.lines().map {
@@ -27,7 +27,7 @@ fun main() = day(7) {
     }
 }
 
-fun Equation.isValid(): Boolean {
+private fun Equation.isValid(): Boolean {
     val (testValue, nums) = this
     if (nums.sum() == testValue) return true
 

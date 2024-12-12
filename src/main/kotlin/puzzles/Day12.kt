@@ -5,7 +5,7 @@ import util.grid.*
 
 // Day 12
 
-fun main() = day(12, example = false) {
+fun main() = day(12) {
     val map = Grid.charGrid(input)
     var regions: List<Pair<Char, MutableSet<Point>>> = listOf()
 

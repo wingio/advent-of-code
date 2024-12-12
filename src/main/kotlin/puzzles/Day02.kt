@@ -1,14 +1,14 @@
 package puzzles
 
 import day
-import util.getNumbersFromLine
+import util.list.getIntsFromLine
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 
 // Day 2
 
 fun main() = day(2) {
-    val reports = input.lines().map { getNumbersFromLine(it) }
+    val reports = input.lines().map { getIntsFromLine(it) }
 
     part1 {
         reports.count { reportIsSafe(it) }

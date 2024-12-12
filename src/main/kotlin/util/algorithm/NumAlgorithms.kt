@@ -1,6 +1,6 @@
 package util.algorithm
 
-import util.product
+import util.list.product
 
 /**
  * Gets the greatest common divisor for a pair of numbers

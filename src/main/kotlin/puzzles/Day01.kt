@@ -1,13 +1,13 @@
 package puzzles
 
 import day
-import util.getNumbersFromLine
+import util.list.getIntsFromLine
 import kotlin.math.absoluteValue
 
 // Day 1
 
 fun main() = day(1) {
-    val numbers = input.lines().map { getNumbersFromLine(it) }
+    val numbers = input.lines().map { getIntsFromLine(it) }
     val list1 = numbers.map { it.first() }.sorted()
     val list2 = numbers.map { it.last() }.sorted()
 

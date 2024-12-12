@@ -1,11 +1,12 @@
 package puzzles
 
 import day
+import util.list.getLongsFromLine
 
 // Day 11
 
 fun main() = day(11) {
-    val stones = input.split(" ").map { it.toLong() }
+    val stones = getLongsFromLine(input)
 
     part1 {
         val stoneMap = mutableMapOf<Pair<Int, Long>, Long>()
@@ -18,7 +19,7 @@ fun main() = day(11) {
     }
 }
 
-fun change(stone: Long, depth: Int, maxDepth: Int, cache: MutableMap<Pair<Int, Long>, Long>): Long {
+private fun change(stone: Long, depth: Int, maxDepth: Int, cache: MutableMap<Pair<Int, Long>, Long>): Long {
     if(depth == maxDepth) return 1
     cache[depth to stone]?.let { return it }
 

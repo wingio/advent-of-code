@@ -27,7 +27,7 @@ fun main() = day(12) {
         areas.zip(perimeters).sumOf { (area, perimeter) -> area * perimeter }
     }
 
-    part1 {
+    part2 {
         val areas = regions.map { it.second.size }
         val sides = regions.map { (name, points) ->
             points.sumOf { point ->

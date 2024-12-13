@@ -27,7 +27,7 @@ fun main() = day(13, example = false) {
     }
 }
 
-private fun Game.play(axisIncrease: Long = 0L, pressRange: LongRange = 1L..100L): Long {
+private fun Game.play(axisIncrease: Long = 0L): Long {
     val xPrize = prizeLocation.first + axisIncrease
     val yPrize = prizeLocation.second + axisIncrease
 

@@ -8,7 +8,7 @@ import util.grid.Point
 
 private val gameRx = "X[+=](\\d+), Y[+=](\\d+)".toRegex()
 
-fun main() = day(13, example = false) {
+fun main() = day(13) {
     val games = input.split("\n\n").map {
         val p = it.split("\n").map { line ->
             val m = gameRx.find(line)!!

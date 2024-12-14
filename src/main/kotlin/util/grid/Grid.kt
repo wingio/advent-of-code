@@ -98,3 +98,5 @@ class Grid<T>(
     }
 
 }
+
+fun Grid(width: Int, height: Int) = Grid(Array(height) { Array(width) { '.' } })

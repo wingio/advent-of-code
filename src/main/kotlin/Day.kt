@@ -8,7 +8,7 @@ fun day(day: Int, example: Boolean = true, builder: Day.() -> Unit) {
 
 class Day(
     day: Int,
-    example: Boolean
+    val example: Boolean
 ) {
 
     val input = readInput(day, example)

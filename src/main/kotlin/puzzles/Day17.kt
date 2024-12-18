@@ -15,24 +15,25 @@ fun main() = day(17, example = false) {
         program.runProgram(aRegister).joinToString(",")
     }
 
-    part2 { // Need to bruteforce eventually
-        var aReg = 100000000000000
-        val inc = 1
-        val last = 10
+    part2 { // Credit to https://github.com/zt64
+        var valid = listOf(0L)
+        val suffixes = (1..16).map { program.takeLast(it) }
 
-        while (false) {
-            val out = program.runProgram(aReg)
-            if (out == program) break else aReg -= inc
-//            if (out.take(6) == program.take(6)) break else aReg += inc
-//            if (out.size == program.size) {
-//                if (out.takeLast(last) == program.takeLast(last)) {
-//                    return@part2 aReg
-//                }
-//            }
-//            aReg += inc
+        for (i in 1..program.size) {
+            val suffix = suffixes[i - 1]
+
+            valid = buildList {
+                valid.forEach { n ->
+                    for (offset in 0..8) {
+                        val a = (8L * n + offset)
+
+                        if(program.runProgram(a) == suffix) add(a)
+                    }
+                }
+            }
         }
 
-        aReg
+        valid.min()
     }
 }
 

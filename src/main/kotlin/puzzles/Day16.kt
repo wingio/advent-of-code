@@ -6,7 +6,7 @@ import java.util.PriorityQueue
 
 // Day 16
 
-fun main() = day(16, example = true) {
+fun main() = day(16) {
     val maze = Grid.charGrid(input)
 
     part1 { maze.dijkstra().first }

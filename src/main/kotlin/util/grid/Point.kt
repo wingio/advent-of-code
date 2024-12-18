@@ -18,6 +18,26 @@ fun Point.extend(direction: Direction, count: Int) = List(count) { this + direct
 
 typealias Direction = Pair<Int, Int>
 
+/**
+ * Get the next direction by turning clockwise or counter-clockwise
+ * according to [cw]
+ *
+ * @param cw Whether to turn clockwise, if false will turn counter-clockwise
+ * @return The next direction
+ */
+fun Direction.turn(cw: Boolean): Direction
+        = Directions.ALL[(Directions.ALL.indexOf(this) + if (cw) 1 else -1).mod(Directions.ALL.size)]
+
+/**
+ * Get the next cardinal direction by turning clockwise or counter-clockwise
+ * according to [cw]
+ *
+ * @param cw Whether to turn clockwise, if false will turn counter-clockwise
+ * @return The next cardinal direction
+ */
+fun Direction.cardinalTurn(cw: Boolean): Direction
+        = Directions.CARDINALS[(Directions.CARDINALS.indexOf(this) + if (cw) 1 else -1).mod(Directions.CARDINALS.size)]
+
 object Directions {
 
     val North = -1 to 0

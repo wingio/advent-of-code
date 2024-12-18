@@ -13,7 +13,7 @@ fun main() = day(16) {
     part2 { maze.dijkstra().second.size }
 }
 
-fun Grid<Char>.dijkstra(): Pair<Int, Set<Point>> {
+private fun Grid<Char>.dijkstra(): Pair<Int, Set<Point>> {
     val queue = PriorityQueue<Path>(compareBy { it.score })
     val start = pointOfFirst { it == 'S' }
     val end = pointOfFirst { it == 'E' }
@@ -44,17 +44,14 @@ fun Grid<Char>.dijkstra(): Pair<Int, Set<Point>> {
     return score to seats
 }
 
-fun Direction.turn(cw: Boolean): Direction
-    = Directions.CARDINALS[(Directions.CARDINALS.indexOf(this) + if (cw) 1 else -1).mod(4)]
-
-data class Path(
+private data class Path(
     val score: Int,
     val points: List<Point>,
     val direction: Direction
 ) {
 
     val end get() = points.last()
-    fun turn(cw: Boolean) = copy(score = score + 1000, direction = direction.turn(cw))
+    fun turn(cw: Boolean) = copy(score = score + 1000, direction = direction.cardinalTurn(cw))
     fun move() = copy(score = score + 1, points = points + (end + direction))
 
 }

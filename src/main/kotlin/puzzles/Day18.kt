@@ -6,7 +6,7 @@ import util.grid.*
 
 // Day 18
 
-fun main() = day(18, example = false) {
+fun main() = day(18) {
     val memory = Grid(71, 71)
     val fallingBytes: List<Point> = input.lines().map {
         it.split(",").map { c -> c.toInt() }.let { c -> c.last() to c.first() }

@@ -4,7 +4,7 @@ import day
 
 // Day 19
 
-fun main() = day(19, example = false) {
+fun main() = day(19) {
     val cache = mutableMapOf<String, Long>()
     val (towels, patterns) = input.split("\n\n").run { first().split(", ") to last().lines() }
 

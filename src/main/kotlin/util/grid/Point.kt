@@ -1,6 +1,8 @@
 package util.grid
 
 import kotlin.math.abs
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 // Absolute Points
 
@@ -12,15 +14,6 @@ val Point.y get() = first
 operator fun Point.plus(other: Pair<Int, Int>) = y + other.y to x + other.x
 operator fun Point.minus(other: Pair<Int, Int>) = y - other.y to x - other.x
 operator fun Point.times(int: Int) = y * int to x * int
-
-fun Point.extend(direction: Direction, count: Int) = List(count) { this + direction * it }
-
-fun Point.manhattanDistance(other: Point)
-    = abs(x - other.x) + abs(y - other.y)
-
-fun Point.cardinalNeighbors()
-    = Directions.CARDINALS.map { this + it }
-
 
 // Relative Points
 

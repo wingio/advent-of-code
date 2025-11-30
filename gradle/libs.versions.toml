@@ -1,0 +1,11 @@
+[versions]
+clikt = "5.0.1"
+kotlin = "2.2.21"
+kotlinx-io = "0.8.2"
+
+[libraries]
+clikt = { group = "com.github.ajalt.clikt", name = "clikt", version.ref = "clikt" }
+kotlinx-io = { group = "org.jetbrains.kotlinx", name = "kotlinx-io-core", version.ref = "kotlinx-io" }
+
+[plugins]
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

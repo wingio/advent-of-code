@@ -1,15 +1,12 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
-    java
+    alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
 group = "xyz.wingio"
-version = "1.0-SNAPSHOT"
+version = "2025"
 
-repositories {
-    mavenCentral()
-}
-
-java {
-    version = 17
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }

@@ -1,5 +1,6 @@
 .gradle
-/build/
+**/build/
+
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -17,5 +18,5 @@ gradle-app.setting
 .kotlin/
 
 # AOC rules suggest not uploading inputs
-**/resources/*.txt
-!**/resources/*.example.txt
+inputs/*.txt
+!inputs/*.example.txt

@@ -1,12 +1,12 @@
-# Advent of Code 2024
-These are my solutions to the Advent of Code 2024 challenges, entirely in Kotlin.
-
-## Prerequisites:
- - Java 17 or higher
- - IntelliJ IDEA or Android Studio
+# Advent of Code 2025
+These are my solutions to the Advent of Code 2025 challenges, entirely in Kotlin Native.
 
 ## Info
-All puzzles can be found in the `src/main/kotlin/puzzles` directory.
-Only example inputs are included, real inputs are not pushed in accordance with AOC guidelines.
+All puzzle solutions can be found in the [solutions](/aoc/solver/src/commonMain/kotlin/solver/solutions) package.
+Inputs are located in the [inputs](/inputs) directory, only examples are included per AOC guidelines.
 
-To run the solution for a given day just click the run button in the main function of that puzzles file.
+### Build
+1. Run `./gradlew :aoc:solver:build` to the build the solver cli.
+2. Run the `aoc` program using `-d <day> -i <path to input>`
+    - Linux: `aoc.kexe` is located in `aoc/solver/build/bin/linuxX64/aocReleaseExecutable`
+    - Windows: `aoc.exe` is located in `aoc/solver/build/bin/mingwX64/aocReleaseExecutable`

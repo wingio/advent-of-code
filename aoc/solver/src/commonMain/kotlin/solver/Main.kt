@@ -15,7 +15,8 @@ import kotlinx.io.readString
 import solver.solutions.*
 
 val Days = listOf<Day>(
-    Day01
+    Day01,
+    Day02
 )
 
 fun main(args: Array<String>) {

@@ -75,6 +75,24 @@ class Grid<T>(
     }
 
     /**
+     * Removes an item at the specified [point]
+     */
+    fun remove(point: Point): T? {
+        return data.remove(point)
+    }
+
+    /**
+     * Removes all items at each of the specified [points]
+     */
+    fun removeAll(points: Collection<Point>) {
+        if (points.isEmpty()) return
+        for (point in points) {
+            if (getOrNull(point) == null) continue
+            remove(point)
+        }
+    }
+
+    /**
      * Checks whether the specified [point]
      * is within the bounds of this grid
      */

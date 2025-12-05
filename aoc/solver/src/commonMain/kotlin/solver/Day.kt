@@ -9,7 +9,6 @@ fun day(day: Int, block: Day.(input: String) -> Unit): Day {
             try {
                 block(input)
             } catch (e: Throwable) {
-                println(e.message)
                 e.printStackTrace()
             }
         }

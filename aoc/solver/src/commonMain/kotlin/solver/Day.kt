@@ -21,17 +21,22 @@ abstract class Day(
 
     abstract fun solve(input: String)
 
-    fun part1(block: () -> Any) = solvePart(1, block)
+    fun <T> part1(expected: T? = null, block: () -> T) = solvePart(1, expected, block)
 
-    fun part2(block: () -> Any) = solvePart(2, block)
+    fun <T> part2(expected: T? = null, block: () -> T) = solvePart(2, expected, block)
 
-    private fun solvePart(part: Int, block: () -> Any) {
+    private fun <T> solvePart(part: Int, expected: T?, block: () -> T) {
+        println("-+{[ Part $part ]}=====================================================+-")
         measureTimedValue(block).print { (result, time) ->
-            """
-                -+{[ Part $part ]}=====================================================+-
-                Result: $result
-                Took $time
-            """.trimIndent()
+            buildString {
+                appendLine("Result: $result")
+                if (expected != null) {
+                    append("Expected: $expected ")
+                    if (result == expected) append("\u001b[1;32m✓") else append("\u001b[1;31m✗")
+                    appendLine("\u001b[0m")
+                }
+                appendLine("Took $time")
+            }
         }
         println()
     }

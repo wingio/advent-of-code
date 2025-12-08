@@ -2,17 +2,18 @@ package solver.solutions
 
 import solver.day
 import util.grid.*
+import util.print
 import kotlin.experimental.ExperimentalNativeApi
 
 @OptIn(ExperimentalNativeApi::class)
 val Day07 = day(7) { input ->
-    part1 {
+    part1(expected = 1662) {
         val manifold = Grid.charGrid(input)
         manifold.trackBeams(start = manifold.pointOfFirst { it == 'S' })
                 .countPoints { manifold[it] == '^' && manifold.getOrNull(it.up) == '|' }
     }
 
-    part2 {
+    part2(expected = 40941112789504) {
         val manifold = Grid.charGrid(input)
         val cache = mutableMapOf<Point, Long>()
 
@@ -37,7 +38,7 @@ private fun Grid<Char>.trackBeams(start: Point): Grid<Char> {
             point += Direction.South
             if ((getOrNull(point) ?: break@inner) == '^') {
                 listOf(point.left, point.right)
-                    .filter { p -> points.contains(p)  && get(p) != '|' }
+                    .filter { p -> points.contains(p) && get(p) != '|' }
                     .forEach { queue.add(it); set(it, '|') }
 
                 break@inner

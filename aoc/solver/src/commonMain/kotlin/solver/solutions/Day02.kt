@@ -8,7 +8,7 @@ val Day02 = day(2) { input ->
         start..end
     }
 
-    part1 {
+    part1(expected = 29940924880) {
         var x = 0L
         ranges.forEach { range ->
             for (id in range) {
@@ -21,7 +21,7 @@ val Day02 = day(2) { input ->
         x
     }
 
-    part2 {
+    part2(expected = 48631958998) {
         var x = 0L
         ranges.forEach { range ->
             for (id in range) {

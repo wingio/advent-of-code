@@ -8,7 +8,7 @@ val Day03 = day(3) { input ->
         it.toList().map { c -> c.digitToInt().toLong() }
     }
 
-    part1 {
+    part1(expected = 17445) {
         banks.sumOf { bank ->
             val max = bank.dropLast(1).max()
             val nextMax = bank.subList(bank.indexOfFirst { x -> x == max } + 1, bank.size).max()
@@ -17,7 +17,7 @@ val Day03 = day(3) { input ->
         }
     }
 
-    part2 {
+    part2(expected = 173229689350551) {
         banks.sumOf { bank ->
             var x = 0L
             var lastIndex = 0

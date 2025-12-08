@@ -10,7 +10,7 @@ val Day01 = day(1) { input ->
         if (it.startsWith('R')) it.drop(1).toInt() else -it.drop(1).toInt()
     }
 
-    part1 {
+    part1(expected = 1118) {
         var current = 50
         turns.count { turn ->
             current += turn
@@ -18,7 +18,7 @@ val Day01 = day(1) { input ->
         }
     }
 
-    part2 {
+    part2(expected = 6289) {
         var current = 50
         var count = 0
 

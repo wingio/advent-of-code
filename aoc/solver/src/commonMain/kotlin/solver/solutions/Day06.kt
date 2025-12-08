@@ -4,7 +4,7 @@ import solver.day
 import util.collection.product
 
 val Day06 = day(6) { input ->
-    part1 {
+    part1(expected = 6417439773370) {
         val (ops, nums) = input.lines()
             .map { it.trim().split("""\s+""".toRegex()) }
             .let { it.last() to it.dropLast(1).map { l -> l.map { s -> s.toLong() } } }
@@ -12,7 +12,7 @@ val Day06 = day(6) { input ->
         ops.withIndex().sumOf { (i, op) -> nums.map { it[i] }.op(op.first()) }
     }
 
-    part2 {
+    part2(expected = 11044319475191) {
         val (ops, nums) = input.lines().let { it.last() to it.dropLast(1) }
 
         var currentNums = mutableListOf<Long>()

@@ -8,8 +8,8 @@ import util.grid.allNeighbors
 val Day04 = day(4) { input ->
     val rolls = Grid.charGrid(input)
 
-    part1 { rolls.getRemovable().count() }
-    part2 { rolls.getRemovableCount() }
+    part1(expected = 1376) { rolls.getRemovable().count() }
+    part2(expected = 8587) { rolls.getRemovableCount() }
 }
 
 private tailrec fun Grid<Char>.getRemovableCount(count: Int = 0): Int {

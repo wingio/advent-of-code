@@ -1,5 +1,9 @@
 package util.grid
 
+import util.point.Direction
+import util.point.Point
+import util.point.extend
+
 typealias Matrix<T> = Array<Array<T>>
 
 operator fun <T> Matrix<T>.contains(point: Point): Boolean {

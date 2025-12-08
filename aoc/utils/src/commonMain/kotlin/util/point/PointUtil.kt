@@ -1,4 +1,4 @@
-package util.grid
+package util.point
 
 import kotlin.math.abs
 import kotlin.math.pow

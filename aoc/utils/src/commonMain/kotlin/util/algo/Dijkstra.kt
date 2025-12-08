@@ -1,10 +1,10 @@
 package util.algo
 
 import util.collection.PriorityQueue
-import util.grid.Direction
+import util.point.Direction
 import util.grid.Grid
-import util.grid.Point
-import util.grid.cardinalTurn
+import util.point.Point
+import util.point.cardinalTurn
 import kotlin.comparisons.compareBy
 
 /**

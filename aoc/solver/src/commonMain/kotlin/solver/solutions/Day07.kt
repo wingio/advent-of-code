@@ -2,7 +2,7 @@ package solver.solutions
 
 import solver.day
 import util.grid.*
-import util.print
+import util.point.*
 import kotlin.experimental.ExperimentalNativeApi
 
 @OptIn(ExperimentalNativeApi::class)

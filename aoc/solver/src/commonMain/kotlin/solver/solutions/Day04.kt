@@ -2,8 +2,8 @@ package solver.solutions
 
 import solver.day
 import util.grid.Grid
-import util.grid.Point
-import util.grid.allNeighbors
+import util.point.Point
+import util.point.allNeighbors
 
 val Day04 = day(4) { input ->
     val rolls = Grid.charGrid(input)

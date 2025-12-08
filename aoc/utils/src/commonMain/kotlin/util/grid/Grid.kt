@@ -1,5 +1,6 @@
 package util.grid
 
+import util.point.Point
 import kotlin.experimental.ExperimentalNativeApi
 
 /**

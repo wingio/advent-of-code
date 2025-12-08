@@ -20,7 +20,8 @@ val Days = listOf<Day>(
     Day03,
     Day04,
     Day05,
-    Day06
+    Day06,
+    Day07
 )
 
 fun main(args: Array<String>) {
@@ -59,7 +60,7 @@ class Main : CliktCommand() {
                 .readString()
 
             day.solve(input)
-        } catch (e: IOException) {
+        } catch (_: IOException) {
             return println("Error: Input path is directory")
         }
     }

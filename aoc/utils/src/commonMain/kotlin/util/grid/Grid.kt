@@ -30,8 +30,9 @@ class Grid<T>(
     val rows = matrix.indices
     val cols = matrix.first().indices
 
-    var height = matrix.size
-    var width = matrix.first().size
+    val height = matrix.size
+    val width = matrix.first().size
+    val size = height * width
 
     val points: Set<Point> get() = data.keys
     val items: List<T> get() = data.values.toList()

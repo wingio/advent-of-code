@@ -53,3 +53,13 @@ inline fun <T> Grid<T>.findPoint(predicate: (T) -> Boolean): Point? {
         predicate(get(it))
     }
 }
+
+/**
+ * Counts the number of items in the grid that match the given [predicate]
+ */
+inline fun <T> Grid<T>.count(predicate: (T) -> Boolean): Int = items.count(predicate)
+
+/**
+ * Counts the number of points in the grid that match the given [predicate]
+ */
+inline fun <T> Grid<T>.countPoints(predicate: (Point) -> Boolean): Int = points.count(predicate)

@@ -35,3 +35,8 @@ fun Point.cardinalNeighbors() = Direction.CARDINALS.map { this + it }
  * Note that any of these points may be out of bounds.
  */
 fun Point.allNeighbors() = Direction.ALL.map { this + it }
+
+val Point.up get() = plus(Direction.North)
+val Point.down get() = plus(Direction.South)
+val Point.left get() = plus(Direction.West)
+val Point.right get() = plus(Direction.East)

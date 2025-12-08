@@ -1,5 +1,10 @@
 package solver
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import util.print
 import kotlin.time.measureTimedValue
 
@@ -19,6 +24,8 @@ abstract class Day(
     val day: Int
 ) {
 
+    var spinnerJob: Job? = null
+
     abstract fun solve(input: String)
 
     fun <T> part1(expected: T? = null, block: () -> T) = solvePart(1, expected, block)
@@ -27,8 +34,12 @@ abstract class Day(
 
     private fun <T> solvePart(part: Int, expected: T?, block: () -> T) {
         println("-+{[ Part $part ]}=====================================================+-")
+        indicator()
+
         measureTimedValue(block).print { (result, time) ->
+            spinnerJob?.cancel()
             buildString {
+                append("\u001b[2K\r") // Clear loading indicator
                 appendLine("Result: $result")
                 if (expected != null) {
                     append("Expected: $expected ")
@@ -38,7 +49,21 @@ abstract class Day(
                 appendLine("Took $time")
             }
         }
+
         println()
+    }
+
+    fun indicator() {
+        val stages = listOf("[           ]", "[=          ]", "[==         ]", "[===        ]", "[ ===       ]", "[  ===      ]", "[   ===     ]", "[    ===    ]", "[     ===   ]", "[      ===  ]", "[       === ]", "[        ===]", "[         ==]", "[          =]", "[           ]", "[          =]", "[         ==]", "[        ===]", "[       === ]", "[      ===  ]", "[     ===   ]", "[    ===    ]", "[   ===     ]", "[  ===      ]", "[ ===       ]", "[===        ]", "[==         ]", "[=          ]",)
+        var current = 0
+
+        spinnerJob = CoroutineScope(Dispatchers.Default).launch {
+            while (true) {
+                print("\u001b[2K\r${stages[current % stages.size]} Solving...")
+                current++
+                delay(50)
+            }
+        }
     }
 
 }

@@ -18,6 +18,8 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.clikt)
             implementation(libs.kotlinx.io)
+            implementation(libs.kotlinx.coroutines)
+
             implementation(project(":aoc:utils"))
         }
     }

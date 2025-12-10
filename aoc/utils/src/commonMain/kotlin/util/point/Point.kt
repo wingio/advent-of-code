@@ -11,6 +11,15 @@ data class Point(
 
     operator fun minus(other: Direction) = Point(x - other.relativePoint.x, y - other.relativePoint.y)
 
+    companion object {
+
+        fun fromLine(line: String): Point {
+            val (x, y) = line.split("""\D+""".toRegex()).map { it.toInt() }
+            return Point(x, y)
+        }
+
+    }
+
 }
 
 // Relative Points
